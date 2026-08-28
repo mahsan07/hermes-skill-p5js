@@ -1,0 +1,85 @@
+{
+  "protocol_version": "0.1",
+  "skill": {
+    "id": "hermes-skill-p5js",
+    "display_name": "p5.js",
+    "description": "Build generative art, shaders, interactive sketches, and 3D scenes with p5.js."
+  },
+  "task_profile": {
+    "category": "creative",
+    "architecture": "canvas",
+    "artifact": "canvas",
+    "inputs": [
+      "Sketch concept",
+      "p5.js canvas"
+    ],
+    "outputs": [
+      "Browser-rendered artwork",
+      "800 \u00d7 800",
+      "Seed 4182",
+      "Mouse force",
+      "60 fps"
+    ]
+  },
+  "modules": {
+    "memory": {
+      "strategy": "artifact_revision_history",
+      "responsibility": "Retain sketch concept plus decisions, observations, and verification evidence needed to resume safely."
+    },
+    "planning": {
+      "strategy": "iterative_composition_plan",
+      "responsibility": "Transform p5.js canvas into the ordered, bounded stages defined by this skill."
+    },
+    "action": {
+      "strategy": "brief_generate_render_inspect_export",
+      "responsibility": "Advance the workflow through drawing and shader code while preserving stop conditions and user authority."
+    },
+    "capability": {
+      "strategy": "task_conditioned_minimum_capability_set",
+      "responsibility": "Expose only the production and rendering capabilities needed for the requested artifact and format."
+    }
+  },
+  "execution": {
+    "stages": [
+      "Define canvas size motion and interaction",
+      "Build the drawing loop and scene state",
+      "Add geometry particles shader or 3D forms",
+      "Expose useful live controls",
+      "Run at multiple viewport sizes",
+      "Capture a deterministic seed and preview"
+    ],
+    "gates": [
+      "scope_and_authority_confirmed",
+      "capability_and_dependency_preflight",
+      "consequential_action_previewed_when_applicable",
+      "output_reopened_and_verified"
+    ]
+  },
+  "verification": {
+    "evidence": [
+      "800 \u00d7 800",
+      "Seed 4182",
+      "Mouse force",
+      "60 fps"
+    ],
+    "metrics": [
+      "task_success",
+      "verification_pass_rate",
+      "tool_error_rate",
+      "repair_count",
+      "latency_ms",
+      "estimated_cost_usd"
+    ]
+  },
+  "failure_policy": {
+    "max_repairs": 2,
+    "schema_error": "repair_then_stop",
+    "permission_error": "stop_without_retry",
+    "verification_failure": "report_incomplete"
+  },
+  "maturity": {
+    "level": "executable_contract",
+    "runtime_scope": "validation_and_dry_run_planning",
+    "claim_boundary": "This repository validates and plans the harness contract; it does not claim live service execution or benchmark gains without a connected adapter and measured evidence."
+  }
+}
